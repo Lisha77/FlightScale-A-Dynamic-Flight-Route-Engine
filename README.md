@@ -49,17 +49,6 @@ Realtime works **without any key** via fallback chains:
 | Weather | OpenWeatherMap (key) | Open-Meteo (keyless) | deterministic simulation |
 | Airspace traffic | OpenSky (anonymous) | adsb.lol (keyless) | deterministic simulation |
 
-Failed/rate-limited cells fail fast to the next fallback instead of stalling
-on backoff loops, and are retried automatically after a 120 s cooldown,
-and every provider is budgeted per process so the free tiers are never
-exhausted. Open-Meteo specifically is **batched** (15 cells per request) and
-globally paced (≥ 0.2 s between calls); an HTTP 429/503 degrades that batch
-to simulation immediately rather than blocking the prefetch — roughly 15×
-fewer requests than the naive one-call-per-cell loop, which is what
-triggered its rate limit before. Results outside the live
-budgets fall back to a **deterministic simulation** seeded by the 5°
-geographic grid cell, so results are stable and the pipeline never blocks.
-
 ## Architecture
 
 | Layer | Technology |
