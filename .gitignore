@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+*.log
+*.dat
+!data/*.dat
+.vscode/
+.idea/
+.venv/
+*.docx
+~$*
+
