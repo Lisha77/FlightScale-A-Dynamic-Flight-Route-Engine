@@ -26,15 +26,6 @@ python ui_live_test.py    # dashboard with the "Use live APIs" toggle enabled
 python scalability_test.py  # scaling sweep: weighting & A* vs graph size
 ```
 
-**Research write-up:** `RESEARCH_PAPER.md` is the full academic report
-(formal problem definition, admissibility theorem & proof, experiments,
-scalability analysis, limitations, references). Regenerate the submittable
-DOCX with:
-
-```bash
-pandoc RESEARCH_PAPER.md -o FlightScale_Research_Paper.docx --toc --toc-depth=2 --standalone
-```
-
 Optional environment variable for richer live weather:
 
 ```bash
